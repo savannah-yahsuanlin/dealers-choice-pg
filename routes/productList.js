@@ -1,3 +1,6 @@
+const products = require('express').Router()
+const {client} = require('../db')
+
 module.exports = (products) => 
 `
 	<html>
