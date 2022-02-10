@@ -1,6 +1,3 @@
-const product = require('express').Router()
-const {client} = require('../db')
-
 module.exports = (product) => 
 `
 	<html>
@@ -11,7 +8,7 @@ module.exports = (product) =>
 		<body>
 			<div class="container">	
 				<div class="list">
-					<a href="/"><p style="font-size: 32px;">${product.title}</p></a>
+					<a href="/"><p style="font-size: 32px;">${product.name}</p></a>
 					<img src="${product.thumbnail}">
 					<ul>
 					<li>Price: $${product.price}</li>

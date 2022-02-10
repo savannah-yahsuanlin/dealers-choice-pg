@@ -1,7 +1,7 @@
 const express = require('express')
-const client = require('./db')
-const productList = require('./routes/productList')
-const productDetails = require('./routes/productDetails')
+const {client} = require('./db')
+const productList = require('./views/productList')
+const productDetails = require('./views/productDetails')
 const morgan = require('morgan')
 const app = express()
 
@@ -32,18 +32,8 @@ app.get("/products/:id", async(req, res, next) => {
 })
 
 
-const setUp = async(req, res, next) => {
-	try {
-		await client.connect()
-		const port = process.env.Port || 3001
-		app.listen(port, () => {
-			console.log(`Listening on port ${port}`)
-		})
-	}
-	catch(ex) {
-		next(next)
-	}
-}
 
-
-setUp()
+const port = process.env.Port || 3000
+	app.listen(port, () => {
+	console.log(`Listening on port ${port}`)
+})

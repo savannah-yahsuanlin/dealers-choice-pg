@@ -1,6 +1,3 @@
-const products = require('express').Router()
-const {client} = require('../db')
-
 module.exports = (products) => 
 `
 	<html>
@@ -13,7 +10,7 @@ module.exports = (products) =>
 			<div class="container">	
 					${products.map(product => `
 						<div class="list">
-							<a href="products/${product.id}"><p>${product.title}</p></a>
+							<a href="products/${product.id}"><p>${product.name}</p></a>
 							<img src="${product.thumbnail}">
 						</div>
 					`).join('')}
